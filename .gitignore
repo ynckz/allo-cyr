@@ -1,0 +1,10 @@
+# исходники шрифтов: скачиваются build/fetch-sources.ps1
+vendor/
+
+# python
+__pycache__/
+*.py[cod]
+
+# временное
+*.tmp
+out/_tmp*

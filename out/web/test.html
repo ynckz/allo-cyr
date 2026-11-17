@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Allo Cyr — 400 / 500 / 700 + скругление</title>
+<style>
+  @font-face{font-family:"Allo Cyr";src:url("AlloCyr-Regular.woff2") format("woff2");font-weight:400;font-display:block}
+  @font-face{font-family:"Allo Cyr";src:url("AlloCyr-Medium.woff2") format("woff2");font-weight:500;font-display:block}
+  @font-face{font-family:"Allo Cyr";src:url("AlloCyr-Bold.woff2") format("woff2");font-weight:700;font-display:block}
+  @font-face{font-family:"Allo Cyr Plain";src:url("plain/AlloCyr-Regular.woff2") format("woff2");font-weight:400;font-display:block}
+  @font-face{font-family:"Allo";src:url("Allo-Regular.woff2") format("woff2");font-weight:400;font-display:block}
+  @font-face{font-family:"InterCyr";src:url("Inter-Cyr-RU.woff2") format("woff2");font-weight:400;
+             unicode-range:U+0400-045F;font-display:block}
+
+  body{margin:0;padding:40px;background:#f4f1ea;color:#0d1b1a;
+       font-family:"Allo Cyr",sans-serif}
+  h2{font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;
+     color:#8a8272;margin:42px 0 12px;border-top:1px solid #ddd6c8;padding-top:14px}
+  p{margin:0 0 8px}
+  .s14{font-size:14px}.s16{font-size:16px}.s24{font-size:24px}
+  .s32{font-size:32px}.s48{font-size:48px}.s72{font-size:72px}.s120{font-size:120px}
+  .w4{font-weight:400}.w5{font-weight:500}.w7{font-weight:700}
+  .muted{color:#8a8272;font:13px/1.55 system-ui,sans-serif}
+  .plain{font-family:"Allo Cyr Plain",sans-serif}
+  .f{font-family:"Allo","InterCyr",sans-serif}
+  table{border-collapse:collapse;margin:10px 0}
+  td{padding:4px 18px 4px 0;vertical-align:baseline}
+  td:first-child{font:12px/1.4 system-ui,sans-serif;color:#8a8272;white-space:nowrap}
+  code{font:12px/1.4 ui-monospace,Consolas,monospace;color:#5a5348}
+</style>
+</head>
+<body>
+
+<h2>1. Скругление углов: выключено / включено (Regular 400, 120px)</h2>
+<p class="plain s120">н ж ю я д л ц щ</p>
+<p class="s120">н ж ю я д л ц щ</p>
+<p class="muted">Сверху — чистая кириллица Inter. Снизу — она же с фаской в стиле Allo ROND=50:
+d = 65 units на 90°, только выпуклые стыки прямых, счётчики и кривые не тронуты.</p>
+
+<h2>2. Рядом с латиницей Allo (после скругления)</h2>
+<p class="s72">ynckz / ckzyn / ункз</p>
+<p class="s48">H Н K К X Х O О C С</p>
+<p class="muted">Латиница — оригинальный Allo, кириллица — Inter со скруглением. Пары подобраны по форме.</p>
+
+<h2>3. Три начертания — одна семья «Allo Cyr»</h2>
+<table>
+  <tr><td>400 Regular</td><td class="s48 w4">ynckz / ckzyn / ункз</td></tr>
+  <tr><td>500 Medium</td><td class="s48 w5">ynckz / ckzyn / ункз</td></tr>
+  <tr><td>700 Bold</td><td class="s48 w7">ynckz / ckzyn / ункз</td></tr>
+</table>
+
+<p class="s24 w4">Съешь же ещё этих мягких французских булок, да выпей чаю.</p>
+<p class="s24 w5">Съешь же ещё этих мягких французских булок, да выпей чаю.</p>
+<p class="s24 w7">Съешь же ещё этих мягких французских булок, да выпей чаю.</p>
+
+<h2>4. Размеры, по одному весу</h2>
+<p class="s72 w4">унказ 400</p>
+<p class="s48 w5">ункз 500 — Ёжик, Щука, Цапля</p>
+<p class="s32 w7">ункз 700 — ШИРОКАЯ ЭЛЕКТРИФИКАЦИЯ</p>
+<p class="s16 w4">16px: В чащах юга жил бы цитрус? Да, но фальшивый экземпляр.</p>
+<p class="s14 w4">14px: В чащах юга жил бы цитрус? Да, но фальшивый экземпляр.</p>
+
+<h2>5. Алфавит, 700</h2>
+<p class="s24 w7">А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я</p>
+<p class="s24 w7">а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я</p>
+
+<h2>6. Для сравнения: Allo + Inter через unicode-range (без скругления)</h2>
+<p class="f s48 w4">ynckz / ckzyn / ункз</p>
+<p class="muted">Латиница — Allo, кириллица — Inter как есть. Отличие от секции 2 — только в кириллице.</p>
+
+<h2>7. Что важно знать</h2>
+<p class="muted">
+  Начертания: 400 / 500 / 700, статика. Промежуточные веса (600) браузер синтезирует.<br>
+  Скругление: d = 65.0 / 79.5 / 108.06 units для 400 / 500 / 700 — замерено на мастерах Allo
+  (opsz 14, ROND 50), постоянная на начертание, как в оригинале.<br>
+  Вариативность Allo (wght 100–900, ROND 0–100, opsz 9–32) на кириллицу не распространяется:
+  она зафиксирована на opsz 14 / ROND 50.<br>
+  Кириллица — Inter 4.1, латиница — Allo. Оба под SIL OFL 1.1, copyright обоих в name-таблице.
+</p>
+
+</body>
+</html>
