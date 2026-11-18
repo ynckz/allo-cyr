@@ -1,5 +1,12 @@
 # Allo Cyr
 
+> **Архив (2026-11-18).** Репозиторий больше не развивается и переведён в read-only.
+> Настоящая кириллица для Allo сделана в исходниках:
+> [PR #8](https://github.com/joshpuckett/allo/pull/8), ветка
+> [`degroshi/allo:cyrillic`](https://github.com/degroshi/allo/tree/cyrillic).
+> Растянутый по горизонтали вариант, который используется на ynckz.tech, —
+> [`ynckz/allo`](https://github.com/ynckz/allo), ветка `wide`.
+
 Кириллическая версия [Allo](https://github.com/joshpuckett/allo) — экспериментальная, собранная скриптом.
 
 Латиница — оригинальный Allo 1.0. Кириллица — Inter 4.1, перенесённая в Allo и **со скруглениями в стиле Allo ROND=50**. Три начертания: Regular 400, Medium 500, Bold 700.
